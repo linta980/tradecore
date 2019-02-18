@@ -1,9 +1,9 @@
 # Created by apple at 2019-02-16
-Feature: Register a User Form1
+Feature: Register a User
   # Enter feature description here
-  Scenario: Test Login
-    Given I go to my login form
-    Then the title should be "TradeCore - Step 1 | Registration"
+#  Scenario: Test Login
+#    Given I go to my login form
+#    Then the title should be "TradeCore - Step 1 | Registration"
 
   Scenario: Check landing page 1
     Given I land on main page
@@ -13,7 +13,7 @@ Feature: Register a User Form1
     Given I land on main page
     When I enter first name Dragan
     And I enter last name Lintner
-    And I enter email dragan+1@tradecore.com
+    And I enter email dragan+8@tradecore.com
     And i enter password KnKnPnKn@@345
     And I enter phone number 694158040
     And i enter Birthday 26/03/1980
@@ -29,14 +29,19 @@ Feature: Register a User Form1
 
   Scenario: Fill out the form 1
     Given Landing page is opened
-    When I enter shares frequently
-    And I enter forex frequently
-    And I enter cfds frequently
-    And I enter Spread betting frequently
-    And I enter relevant expirience no_experience
-    And I enter tranding platform 2
+    When I enter shares Frequently
+    And I enter forex Frequently
+    And I enter cfds Frequently
+    And I enter Spread betting Frequently
+    And I enter relevant expirience Attended a relevant training course
+    And I enter tranding platform MT5
     And I enter tranding currency USD
-    And I enter aproximate anual income income_50k_99k
-    And I enter employment status employed
-    And i enter aproximate value of assets income_over_100k
+    And I enter aproximate anual income Over $100,000
+    And I enter employment status Employed
+    And i enter aproximate value of assets Over $100,000
     And I check Terms and Conditions
+    And I click on finish
+
+  Scenario: Onboarding finished
+    Given I land on page 3
+    And Page 3 Title is TradeCore - Account

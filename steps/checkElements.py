@@ -126,33 +126,42 @@ def step_impl(context,title):
         '//h2[text()="Have you traded in any of the following in the past three years?"]')
     print(head)
     try:
-        assert head in head.text
+        assert title in head.text
     except Exception as e:
         print ('Assertion failed', format(e))
 
 
 @when("I enter shares {item}")
 def step_impl(context,item):
-    # option=context.driver.find_element_by_xpath('/descendant::div[@class="mw-600"][1]/div[contains(@class,"chosen-container")]')
-    option = context.driver.find_element_by_xpath('//select[@id="form-shares"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][2]//li[contains(text(),"'+item+'")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
 
 @step("I enter forex {item}")
 def step_impl(context,item):
-    option=context.driver.find_element_by_xpath('//select[@id="form-forex"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][3]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
 
 
+
 @step("I enter cfds {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-cfds"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][4]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -160,8 +169,11 @@ def step_impl(context,item):
 
 @step("I enter Spread betting {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-spread_betting"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][5]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -169,17 +181,27 @@ def step_impl(context,item):
 
 @step("I enter relevant expirience {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-relevant_experience"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        time.sleep(3)
+        select.click()
+        time.sleep(3)
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][6]//li[contains(text(),"' + item + '")]')
         option.click()
+        time.sleep(3)
     except Exception as e:
         print('Can not find this element', e)
 
 
 @step("I enter tranding platform {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-trading_accounts"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][7]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -189,8 +211,11 @@ def step_impl(context,item):
 def step_impl(context,item):
     # Scroll down to bottom
     context.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    option = context.driver.find_element_by_xpath('//*[@id="form-currency"]/option[3]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][8]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -198,8 +223,11 @@ def step_impl(context,item):
 
 @step("I enter aproximate anual income {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-approx_annual_income"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][9]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -207,8 +235,11 @@ def step_impl(context,item):
 
 @step("I enter employment status {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-employment_status"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][10]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -216,8 +247,11 @@ def step_impl(context,item):
 
 @step("i enter aproximate value of assets {item}")
 def step_impl(context,item):
-    option = context.driver.find_element_by_xpath('//select[@id="form-liquid_savings"]/option[@value="' + item + '"]')
+    select = context.driver.find_element_by_xpath('/descendant::a[@class="chosen-single chosen-default"][1]')
     try:
+        select.click()
+        option = context.driver.find_element_by_xpath(
+            '/descendant::div[@class="chosen-drop"][11]//li[contains(text(),"' + item + '")]')
         option.click()
     except Exception as e:
         print('Can not find this element', e)
@@ -225,8 +259,35 @@ def step_impl(context,item):
 
 @step("I check Terms and Conditions")
 def step_impl(context):
-
     try:
         option = context.driver.execute_script("document.getElementsByClassName('checkbox').item(0).click()")
     except Exception as e:
         print('Can not find this element', e)
+
+
+@step("I click on finish")
+def step_impl(context):
+    option = context.driver.find_element_by_xpath('//button[@id="button-step"]')
+    try:
+        option.click()
+    except Exception as e:
+        print('Can not find this element', e)
+
+
+@given("I land on page 3")
+def step_impl(context):
+    time.sleep(10)
+    pass
+
+
+
+@step("Page 3 Title is {title}")
+def step_impl(context,title):
+    head = context.driver.find_element_by_xpath(
+        '//title[text()="TradeCore - Account"]')
+    print(head)
+    try:
+        assert title in head.text
+        time.sleep(3)
+    except Exception as e:
+        print ('Assertion failed', format(e))
