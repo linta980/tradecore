@@ -116,6 +116,7 @@ def step_impl(context):
 
 @given("Landing page is opened")
 def step_impl(context):
+    time.sleep(4)
     pass
 
 
@@ -186,8 +187,9 @@ def step_impl(context,item):
 
 @step("I enter tranding currency {item}")
 def step_impl(context,item):
-    time.sleep(5)
-    option = context.driver.find_element_by_xpath('//select[@name="currency"]/option[@value="' + item + '"]')
+    # Scroll down to bottom
+    context.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    option = context.driver.find_element_by_xpath('//*[@id="form-currency"]/option[3]')
     try:
         option.click()
     except Exception as e:

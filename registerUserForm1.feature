@@ -35,7 +35,7 @@ Feature: Register a User Form1
     And I enter Spread betting frequently
     And I enter relevant expirience no_experience
     And I enter tranding platform 2
-    And I enter tranding currency GBP
+    And I enter tranding currency USD
     And I enter aproximate anual income income_50k_99k
     And I enter employment status employed
     And i enter aproximate value of assets income_over_100k
